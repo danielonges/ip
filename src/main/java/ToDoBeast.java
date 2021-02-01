@@ -41,13 +41,15 @@ public class ToDoBeast {
                             newTask = new Todo(userInput[1]);
                             break;
                         case "deadline": {
-                            String[] deadlineParams = userInput[1].split(" /");
-                            newTask = new Deadline(deadlineParams[0], deadlineParams[1]);
+                            String[] deadlineParams = userInput[1].split(" /by ");
+                            String[] dateAndTime = deadlineParams[1].split(" ");
+                            newTask = new Deadline(deadlineParams[0], dateAndTime[0], dateAndTime[1]);
                             break;
                         }
                         case "event": {
-                            String[] deadlineParams = userInput[1].split(" /");
-                            newTask = new Event(deadlineParams[0], deadlineParams[1]);
+                            String[] deadlineParams = userInput[1].split(" /at ");
+                            String[] dateAndTime = deadlineParams[1].split(" ");
+                            newTask = new Event(deadlineParams[0], dateAndTime[0], dateAndTime[1]);
                             break;
                         }
                     }
